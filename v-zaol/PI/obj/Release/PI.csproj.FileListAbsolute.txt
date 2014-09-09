@@ -1,0 +1,6 @@
+D:\ASE\project\PI\PI\bin\Release\PI.exe.config
+D:\ASE\project\PI\PI\bin\Release\PI.exe
+D:\ASE\project\PI\PI\bin\Release\PI.pdb
+D:\ASE\project\PI\PI\obj\Release\PI.exe
+D:\ASE\project\PI\PI\obj\Release\PI.pdb
+D:\ASE\project\PI\PI\obj\Release\PI.csprojResolveAssemblyReference.cache
