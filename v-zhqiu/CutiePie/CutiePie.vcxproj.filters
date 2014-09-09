@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="App Files">
+      <UniqueIdentifier>{7a6128b3-1248-4a92-b582-e6c5a1ca07b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MultiPrecision">
+      <UniqueIdentifier>{fca2be49-4bde-4251-a58a-f518ac9101d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CalculatePi">
+      <UniqueIdentifier>{64f1251c-b112-4256-9526-06fd30810699}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FFT">
+      <UniqueIdentifier>{72914946-57de-407c-a8c1-15870800a79d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="targetver.h">
+      <Filter>App Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>App Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MultiPrecision.h">
+      <Filter>MultiPrecision</Filter>
+    </ClInclude>
+    <ClInclude Include="PiModule.h">
+      <Filter>CalculatePi</Filter>
+    </ClInclude>
+    <ClInclude Include="MPmpMul.h">
+      <Filter>CalculatePi</Filter>
+    </ClInclude>
+    <ClInclude Include="complex.h">
+      <Filter>FFT</Filter>
+    </ClInclude>
+    <ClInclude Include="FFT.h">
+      <Filter>FFT</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CutiePie.cpp">
+      <Filter>App Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>App Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MPuint.cpp">
+      <Filter>MultiPrecision</Filter>
+    </ClCompile>
+    <ClCompile Include="MPuintAdd.cpp">
+      <Filter>MultiPrecision</Filter>
+    </ClCompile>
+    <ClCompile Include="MPuintEqual.cpp">
+      <Filter>MultiPrecision</Filter>
+    </ClCompile>
+    <ClCompile Include="MPuintMul.cpp">
+      <Filter>MultiPrecision</Filter>
+    </ClCompile>
+    <ClCompile Include="MPuintSub.cpp">
+      <Filter>MultiPrecision</Filter>
+    </ClCompile>
+    <ClCompile Include="MPfloat.cpp">
+      <Filter>MultiPrecision</Filter>
+    </ClCompile>
+    <ClCompile Include="MPfloatEqual.cpp">
+      <Filter>MultiPrecision</Filter>
+    </ClCompile>
+    <ClCompile Include="MPfloatAdd.cpp">
+      <Filter>MultiPrecision</Filter>
+    </ClCompile>
+    <ClCompile Include="MPfloatSub.cpp">
+      <Filter>MultiPrecision</Filter>
+    </ClCompile>
+    <ClCompile Include="MPfloatMul.cpp">
+      <Filter>MultiPrecision</Filter>
+    </ClCompile>
+    <ClCompile Include="MPfloatDiv.cpp">
+      <Filter>CalculatePi</Filter>
+    </ClCompile>
+    <ClCompile Include="MPfloatSqrt.cpp">
+      <Filter>CalculatePi</Filter>
+    </ClCompile>
+    <ClCompile Include="MPfloatPrint.cpp">
+      <Filter>CalculatePi</Filter>
+    </ClCompile>
+    <ClCompile Include="BS.cpp">
+      <Filter>CalculatePi</Filter>
+    </ClCompile>
+    <ClCompile Include="MPmpMul.cpp">
+      <Filter>CalculatePi</Filter>
+    </ClCompile>
+    <ClCompile Include="FFT.cpp">
+      <Filter>FFT</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
