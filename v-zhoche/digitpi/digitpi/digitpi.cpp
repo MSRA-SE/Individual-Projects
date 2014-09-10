@@ -4,61 +4,15 @@
 #include "stdafx.h"
 #include "math.h"
 #include <iostream>
+#include "digitpi.h"
 
 #define A 13591409
 #define B 545140134
 #define C 640320
 #define K 1000000000
+#define maxL 500
 
 using namespace std;
-
-class bignum
-{
-public:
-	bignum(void);
-
-	bignum(int length,int dotpos,int sign);
-
-	//void copy(bignum *source);
-	
-	void setnum(long long num,int pos);
-
-	void setsign(int sign);
-
-	void changelength();
-
-	int getlength();
-
-	int getdotpos();
-
-	int getsign();
-	
-	long long getnumber(int i);
-
-	void multi(bignum *src1, bignum *src2);
-
-	void add(bignum *src1, bignum *src2);
-
-private:
-	long long *data;
-
-	int _length;
-
-	int _dotpos;
-
-	int _sign;
-};
-
-void computesqrt(bignum *ans,int N);
-
-void computereciprocal(bignum *q, bignum *t, bignum *ans,int N);
-
-void computepqt(int n, bignum *p, bignum *q, bignum *t);
-
-void computePQT(int n, int m, bignum *p, bignum *q, bignum *t);
-
-void chudnovsky(int N);
-
 
 bignum *C3div24=new bignum(2, 0, 0);
 
@@ -124,33 +78,125 @@ long long bignum::getnumber(int i)
 
 void bignum::multi(bignum *src1, bignum *src2)
 {
-	for (int i = 0; i < src1->_length; i++)
+	bignum *lsrc1, *hsrc1, *lsrc2, *hsrc2;
+	bignum *sumsrc1, *sumsrc2, *summulti, *multisum;
+	bignum *multilow, *multihigh, *cross;
+
+	int min = src1->getlength();
+	if (min > src2->getlength()) min = src2->getlength();
+	if (min < maxL)
 	{
-		//if (src1->data[i] != 0)
-		//{
+		for (int i = 0; i < src1->_length; i++)
+		{
+			//if (src1->data[i] != 0)
+			//{
 			for (int j = 0; j < src2->_length; j++)
 			{
 				//if (src2->data[j] != 0)
 				//{
-					long long temp = src1->data[i]*src2->data[j];
+				long long temp = src1->data[i] * src2->data[j];
+				if (temp >= K)
+				{
 					long long t = temp / K;
 					data[i + j] += temp - t*K;
 					data[i + j + 1] += t;
+				}
+				else data[i + j] += temp;
 				//}
 			}
-		//}
+			//}
+		}
+		for (int i = 0; i < _length - 1; i++)
+		{
+			long long temp = data[i] / K;
+			data[i + 1] += temp;
+			data[i] -= temp*K;
+		}
 	}
-	for (int i = 0; i < _length - 1; i++)
+	else
 	{
-		data[i + 1] += data[i] / K;
-		data[i] = data[i] % K;
-	}
+		int lowlength = min / 2;
+		lsrc1 = new bignum(lowlength, 0, 0);
+		for (int i = 0; i < lowlength; i++)
+			lsrc1->setnum(src1->data[i], i);
+		lsrc1->changelength();
+		int highlength1 = src1->getlength() - lowlength;
+		hsrc1 = new bignum(highlength1, 0, 0);
+		for (int i = 0; i < highlength1; i++)
+			hsrc1->setnum(src1->data[i + lowlength], i);
+		
+		lsrc2 = new bignum(lowlength, 0, 0);
+		for (int i = 0; i < lowlength; i++)
+			lsrc2->setnum(src2->data[i], i);
+		lsrc2->changelength();
+		int highlength2 = src2->getlength() - lowlength;
+		hsrc2 = new bignum(highlength2, 0, 0);
+		for (int i = 0; i < highlength2; i++)
+			hsrc2->setnum(src2->data[i + lowlength], i);
+		
+		sumsrc1 = new bignum(highlength1 + 1, 0, 0);
+		sumsrc1->add(lsrc1, hsrc1);
+		sumsrc1->changelength();
+		sumsrc2 = new bignum(highlength2 + 1, 0, 0);
+		sumsrc2->add(lsrc2, hsrc2);
+		sumsrc2->changelength();
 
+		multilow = new bignum(2 * lowlength, 0, 0);
+		multilow->multi(lsrc1, lsrc2);
+		multihigh = new bignum(highlength1 + highlength2, 0, 0);
+		multihigh->multi(hsrc1, hsrc2);
+		summulti = new bignum(highlength1 + highlength2 + 1, 0, 0);
+		summulti->add(multilow, multihigh);
+		summulti->setsign(1);
+
+		delete lsrc1;
+		delete lsrc2;
+		delete hsrc1;
+		delete hsrc2;
+
+		multisum = new bignum(highlength1 + highlength2 + 2, 0, 0);
+		multisum->multi(sumsrc1, sumsrc2);
+
+		delete sumsrc1;
+		delete sumsrc2;
+
+		cross = new bignum(highlength1 + highlength2 + 3, 0, 0);
+		cross->add(multisum, summulti);
+		cross->changelength();
+
+		for (int i = 0; i < 2 * lowlength; i++)
+			data[i] = multilow->data[i];
+		for (int i = lowlength; i - lowlength < cross->getlength(); i++)
+		{
+			data[i] += cross->data[i - lowlength];
+			if (data[i] >= K)
+			{
+				data[i + 1] += 1;
+				data[i] -= K;
+			}
+
+		}
+		for (int i = lowlength * 2; i - lowlength * 2 < multihigh->getlength(); i++)
+		{
+			data[i] += multihigh->data[i - lowlength * 2];
+			if (data[i] >= K)
+			{
+				data[i + 1] += 1;
+				data[i] -= K;
+			}
+		}
+		delete multilow;
+		delete multihigh;
+		delete multisum;
+		delete summulti;
+		delete cross;
+	}
+		
 	_dotpos = src1->_dotpos + src2->_dotpos;
-	_sign = (1-2*src1->_sign)*(1-2*src2->_sign);
+	_sign = (1 - 2 * src1->_sign)*(1 - 2 * src2->_sign);
 	if (_sign == 1) _sign = 0;
 	else _sign = 1;
-
+	
 }
 
 void bignum::add(bignum *src1, bignum *src2)
@@ -272,8 +318,8 @@ void computePQT(int n, int m, bignum *p, bignum *q, bignum *t)
 		if (n != 0)
 		{
 			p1 = new bignum(2, 0, 0);
-			q1 = new bignum(3, 0, 0);
-			t1 = new bignum(4, 0, 0);
+			q1 = new bignum(4, 0, 0);
+			t1 = new bignum(5, 0, 0);
 			computepqt(n, p1, q1, t1);
 		}
 		else
