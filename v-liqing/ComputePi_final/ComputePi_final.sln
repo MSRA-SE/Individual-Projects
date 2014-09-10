@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ComputePi_final", "ComputePi_final\ComputePi_final.vcxproj", "{62C45D1E-D41D-47C5-8BCB-D82C3D2CA527}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitTest", "UnitTest\UnitTest.vcxproj", "{9B3209C1-E6F8-4B0C-9D19-C6C518D39617}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{62C45D1E-D41D-47C5-8BCB-D82C3D2CA527}.Debug|Win32.ActiveCfg = Debug|Win32
+		{62C45D1E-D41D-47C5-8BCB-D82C3D2CA527}.Debug|Win32.Build.0 = Debug|Win32
+		{62C45D1E-D41D-47C5-8BCB-D82C3D2CA527}.Release|Win32.ActiveCfg = Release|Win32
+		{62C45D1E-D41D-47C5-8BCB-D82C3D2CA527}.Release|Win32.Build.0 = Release|Win32
+		{9B3209C1-E6F8-4B0C-9D19-C6C518D39617}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9B3209C1-E6F8-4B0C-9D19-C6C518D39617}.Debug|Win32.Build.0 = Debug|Win32
+		{9B3209C1-E6F8-4B0C-9D19-C6C518D39617}.Release|Win32.ActiveCfg = Release|Win32
+		{9B3209C1-E6F8-4B0C-9D19-C6C518D39617}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
+	EndGlobalSection
+EndGlobal

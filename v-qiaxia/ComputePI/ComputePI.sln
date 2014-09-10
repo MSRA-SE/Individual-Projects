@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComputePI", "ComputePI\ComputePI.csproj", "{1E0B145A-5545-4A81-8AE4-BC69E4E5EFFF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResultTest", "ResultTest\ResultTest.csproj", "{50C443D9-51FC-4EAB-86CE-F0C9E1CC3A63}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{D62ADB32-48C7-4756-AC03-EA5F9CA1A854}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1E0B145A-5545-4A81-8AE4-BC69E4E5EFFF}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{1E0B145A-5545-4A81-8AE4-BC69E4E5EFFF}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{1E0B145A-5545-4A81-8AE4-BC69E4E5EFFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E0B145A-5545-4A81-8AE4-BC69E4E5EFFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50C443D9-51FC-4EAB-86CE-F0C9E1CC3A63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50C443D9-51FC-4EAB-86CE-F0C9E1CC3A63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50C443D9-51FC-4EAB-86CE-F0C9E1CC3A63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50C443D9-51FC-4EAB-86CE-F0C9E1CC3A63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D62ADB32-48C7-4756-AC03-EA5F9CA1A854}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D62ADB32-48C7-4756-AC03-EA5F9CA1A854}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D62ADB32-48C7-4756-AC03-EA5F9CA1A854}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D62ADB32-48C7-4756-AC03-EA5F9CA1A854}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

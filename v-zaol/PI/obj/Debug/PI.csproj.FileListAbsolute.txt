@@ -1,0 +1,5 @@
+D:\ASE\project\PI\PI\bin\Debug\PI.exe.config
+D:\ASE\project\PI\PI\bin\Debug\PI.exe
+D:\ASE\project\PI\PI\bin\Debug\PI.pdb
+D:\ASE\project\PI\PI\obj\Debug\PI.exe
+D:\ASE\project\PI\PI\obj\Debug\PI.pdb
