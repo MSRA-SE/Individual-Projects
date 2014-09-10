@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "math.h"
 //#include <vector>
 #define base 10000
@@ -649,4 +649,41 @@ TLfloot RevSqrt(TLfloot x)
 TLfloot Sqrt(TLfloot x)
 {
 	return(Rev(RevSqrt(x)));
+}
+
+void num(long len, long n,long *pi)
+{
+	long i, j, c, d, carry;
+//	long *pi;
+	for (i = 0; i <= len + 3; i++)
+		pi[i] = 0;
+	c = 1;
+	for (j = n; j >= 1; j--)                 //按公式计算。
+	{
+		d = 2 * j + 1;
+		for (i = 0; i <= len + 2; i++)      //每位先除2j+1.
+		{
+			pi[i] = c / d;
+			c = (c%d) * 10 + pi[i + 1];
+		}
+		pi[len + 3] = c / d;
+		carry = 0;
+		for (i = len + 3; i >= 0; i--)      //每位再乘j
+		{
+			pi[i] = pi[i] * j + carry;
+			carry = pi[i] / 10;
+			pi[i] = pi[i] % 10;
+		}
+
+		pi[0] = pi[0] + 1;
+		c = pi[0];
+	}
+	carry = 0;
+	for (i = len + 3; i >= 0; i--)     //按公式各位乘2
+	{
+		pi[i] = pi[i] * 2 + carry;
+		carry = pi[i] / 10;
+		pi[i] = pi[i] % 10;
+	}
+//	return (pi);
 }

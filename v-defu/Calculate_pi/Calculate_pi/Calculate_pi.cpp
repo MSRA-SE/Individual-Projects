@@ -122,7 +122,7 @@ void main()
 /*    采用级数公式直接算    */
 	double num_lim;
 	num_lim = 0;
-	long carry, len, step,n, c, i, j, d;
+	long len, step, n, i;
 	long *pi;
 	cout << "please input the length you want to calculate of pi" << endl << "length = ";
 	cin >> len;
@@ -131,42 +131,14 @@ void main()
 	pi = new long[len];
 	len -= 100;
 	clock_t t0 = clock();
+
 	for (n = 1; n <= len; n++)     //累加确定项数.
 	{
 		num_lim += log10((2 * n + 1) / n);
 		if (num_lim > len + 1)
 			break;
 	}
-	for (i = 0; i <= len + 3; i++)
-		pi[i] = 0;
-	c = 1;
-	for (j = n; j >= 1; j--)                 //按公式计算。
-	{
-		d = 2 * j + 1;
-		for (i = 0; i <= len + 2; i++)      //每位先除2j+1.
-		{
-			pi[i] = c / d;
-			c = (c%d) * 10 + pi[i + 1];
-		}
-		pi[len + 3] = c / d;
-		carry = 0;
-		for (i = len + 3; i >= 0; i--)      //每位再乘j
-		{
-			pi[i] = pi[i] * j + carry;
-			carry = pi[i] / 10;
-			pi[i] = pi[i] % 10;
-		}
-
-		pi[0] = pi[0] + 1;
-		c = pi[0];
-	}
-	carry = 0;
-	for (i = len + 3; i >= 0; i--)     //按公式各位乘2
-	{
-		pi[i] = pi[i] * 2 + carry;
-		carry = pi[i] / 10;
-		pi[i] = pi[i] % 10;
-	}
+	num(len, n, pi);
 	clock_t t1 = clock() - t0;
 	cout << endl << "PI=" << pi[0] << "." << endl;  //输出计算结果。
 	clock_t t2 = clock();
@@ -183,6 +155,5 @@ void main()
 	cout << "The time to calculate " << len << " pi is " << (t1*1.0 / CLOCKS_PER_SEC) << " seconds" << endl;
 	cout << "The time to print pi is " << (t2*1.0 / CLOCKS_PER_SEC) << " seconds" << endl;
 	cin >> len;
-
 }
 
