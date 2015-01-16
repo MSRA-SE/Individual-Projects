@@ -1,6 +1,7 @@
 #define _CRT_SECURE_NO_DEPRECATE
 
 #include "Header.h"
+#include <time.h>
 
 void add(vector<int> &a, vector<int> &b, int startPos)
 {
@@ -112,6 +113,7 @@ int main(int argc, char *argv[])
 		return 0;
 	}
 
+    clock_t begin = clock();
 	//if (n <= 0) return 0;
 	updateLength(n, MAXN);
 
@@ -138,8 +140,12 @@ int main(int argc, char *argv[])
 		den += 2;
 		add(ans, series, startPos);
 	}
+    clock_t end = clock();
+
 	printAns(ans, n);
-	return 0;
+
+    cout << endl << (double)(end - begin) / CLOCKS_PER_SEC << " s." << endl;
+    return 0;
 }
 
 // 1 + 1/3 + 1*2 / (3*5) + 1*2*3 / (3*5*7)

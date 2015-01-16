@@ -7,6 +7,7 @@
 #include "SimpleMinus.h"
 #include "SimplePlus.h"
 using namespace std;
+#include <time.h>
 
 int main(int args, char* argv[])
 {
@@ -16,7 +17,9 @@ int main(int args, char* argv[])
 	//cout << N << endl;
 
 
-	LData MyPI;
+    int start = clock();
+    
+    LData MyPI;
 	//////////////
 	//int N = 2000;
 	//////////////
@@ -96,7 +99,9 @@ int main(int args, char* argv[])
 
 
 	}
-	
+
+    int end = clock();
+
 	//cout << "hello" << endl;
 	//cout << answer.myint << endl;
 	long long v;
@@ -122,6 +127,7 @@ int main(int args, char* argv[])
 		}
 	}
 	
+    printf("\n\n%f seconds\n", float(end - start) / CLOCKS_PER_SEC);
 
 	//system("pause");
 	return 0;

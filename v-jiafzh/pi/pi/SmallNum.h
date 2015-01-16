@@ -35,6 +35,12 @@ public:
 		memset(data, 0, sizeof(int) * (maxdigit + 1));
 		memcpy(data, b.data, sizeof(int) * (maxdigit + 1));
 	}
+
+    ~SmallNum()
+    {
+        delete[] data;
+    }
+
 	SmallNum operator=(const SmallNum &b) 
 	{
 		memcpy(data, b.data, sizeof(int) * (maxdigit + 1));

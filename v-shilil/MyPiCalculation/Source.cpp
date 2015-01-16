@@ -75,7 +75,7 @@ int main(int argc, char* argv[])
 	}
 		
 	sscanf(argv[1],"%d", &n);
-	//start = clock();
+	start = clock();
 	length = n / 4 + 75;
 	seq = (int *)malloc(sizeof(int)*length);
 	res1 = (int *)malloc(sizeof(int)*length);
@@ -110,7 +110,7 @@ int main(int argc, char* argv[])
 		res1[0] -= base;
 	while (res1[0] < 0)
 		res1[0] += base;
-	//finish = clock();
+	finish = clock();
 	free(seq);
 	free(res2);
 	free(midres);
@@ -142,7 +142,8 @@ int main(int argc, char* argv[])
 	}
 	if (n>0)
 		printf("\n");
-	//printf("\ntime=%lfs", (double)(finish - start) / CLOCKS_PER_SEC);
+	
+    printf("\ntime=%lfs", (double)(finish - start) / CLOCKS_PER_SEC);
 
 	free(res1);
 	free(printres);

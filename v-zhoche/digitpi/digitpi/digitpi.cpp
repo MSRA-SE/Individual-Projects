@@ -5,6 +5,7 @@
 #include "math.h"
 #include <iostream>
 #include "digitpi.h"
+#include <time.h>
 
 #define A 13591409
 #define B 545140134
@@ -723,8 +724,11 @@ int main(int argc,char *argv[])
 	}
 	else
 		N = atoi(argv[1]);
-	chudnovsky(N);
-
+	
+    clock_t begin = clock();
+    chudnovsky(N);
+    clock_t end = clock();
+    cout << endl << "time: " << (double)(end - begin) / CLOCKS_PER_SEC << endl;
 	return 0;
 }
 

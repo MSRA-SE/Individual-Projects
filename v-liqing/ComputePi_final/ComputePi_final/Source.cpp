@@ -35,8 +35,8 @@ double get_item(double pi[], int n)
 
 void main(int argc, char* argv[])
 {
+    int DIGITS = atoi(argv[1]);
 	clock_t start = clock();
-	int DIGITS=30000;
 	//cout << "input wanted digits:\n";
 	//cin >> DIGITS;
 	double *pi = new double[DIGITS / LEN * TIMES];
@@ -57,8 +57,8 @@ void main(int argc, char* argv[])
 			result[i - 1] += floor(result[i] / BASE);
 			result[i] = result[i] - floor(result[i] / BASE)*BASE;
 		}
-		if (i % 2 == 0)
-			cout << endl;
+		//if (i % 2 == 0)
+		//	cout << endl;
 		//printf("%0*.0lf", LEN, result[i]);
 		//std::cout << result[i]<<std::endl;
 		remainder = item - floor(item / BASE)*BASE;
@@ -68,18 +68,19 @@ void main(int argc, char* argv[])
 	
 	std::cout <<endl<<"time: "<< (double)(end - start) / 1000 << std::endl;
 
-	FILE* filePi;
-	if (!(filePi = fopen("D:\\Desktop\\Test\\testPi.txt", "w")))
-	{
-		cout << "fail to open testPi.txt";
-		return;
-	}
-	for (int i = 1; i < DIGITS / LEN; i++)
-	{
-		fprintf(filePi, "%0*.0lf", LEN, result[i]);
-	}
+	//FILE* filePi;
+	//if (!(filePi = fopen("D:\\Desktop\\Test\\testPi.txt", "w")))
+	//{
+	//	cout << "fail to open testPi.txt";
+	//	return;
+	//}
+	//for (int i = 1; i < DIGITS / LEN; i++)
+	//{
+	//	fprintf(filePi, "%0*.0lf", LEN, result[i]);
+	//}
 
-	fclose(filePi);
-	/*getchar();
+	//fclose(filePi);
+
+    /*getchar();
 	getchar();*/
 }

@@ -5,6 +5,7 @@
 #include <cstdio>
 #include <cstdlib>
 #include "SmallNum.h"
+#include <time.h>
 
 SmallNum getPI()
 {
@@ -17,9 +18,13 @@ int _tmain(int argc, _TCHAR* argv[])
 	if (maxdigit <= 0)
 		return 0;
 	SmallNum::setmaxdigit(maxdigit);
-	SmallNum pi = getPI();
-	pi.output(stdout);
-	//system("pause");
+
+    int start = clock();
+    SmallNum pi = getPI();
+    int end = clock();
+    pi.output(stdout);
+    printf("\n\n%f seconds\n", float(end - start) / CLOCKS_PER_SEC);
+    //system("pause");
 	return 0;
 }
 

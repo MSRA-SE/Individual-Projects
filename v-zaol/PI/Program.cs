@@ -211,16 +211,16 @@ namespace PI
         static void doit(string arg)
         {
             compute.N = Convert.ToInt64(arg);
-            //System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
-            //sw.Start();
             if (compute.N == 0)
             {
                 return;
             }
+            System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
+            sw.Start();
             pre();
             computePI();
-            //sw.Stop();
-            //TimeSpan ts = sw.Elapsed;
+            sw.Stop();
+            TimeSpan ts = sw.Elapsed;
             string answer = print(ans);
             for (int i = 0; i < compute.N; i++)
             {
@@ -231,8 +231,8 @@ namespace PI
                 }
             }
             //Console.WriteLine("N:" + n + " M:" + m);
-            //Console.WriteLine("Time:" + ts.TotalSeconds);
-            //Console.WriteLine("Time:" + ts.TotalMilliseconds);
+            Console.WriteLine("Time:" + ts.TotalSeconds);
+            Console.WriteLine("Time:" + ts.TotalMilliseconds);
         }
 
         static void Main(string[] args)

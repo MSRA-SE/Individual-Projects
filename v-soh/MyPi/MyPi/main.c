@@ -357,7 +357,7 @@ void main(int* argc,char** argv)
 
 	NumberDump(&Result);
 	
-	//printf("Time Used %lf s \n",Time);
+	printf("Time Used %lf s \n",Time);
 
 
 

@@ -23,7 +23,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	}
 
 	clock_t begin = clock();
-	bool debug = false;
+	bool debug = true;
 	
 	int k = _ttol(argv[1]);
 	LPuint cn = 10939058860032000;

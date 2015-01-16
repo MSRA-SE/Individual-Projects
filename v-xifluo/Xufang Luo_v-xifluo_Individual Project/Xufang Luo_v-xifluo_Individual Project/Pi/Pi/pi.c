@@ -12,8 +12,8 @@ int calculatePi(int x)
 	if (x > 0)
 		d = x;
 	//q: algorithm, 0: Gauss 1: Stomer; default: Gauss
-//	q = 0;	// Gauss
-		q = 1;	// Stomer
+	q = 0;	// Gauss
+		//q = 1;	// Stomer
 
 	// print out the algorithm
 	//printf("pi= %s%d * arctg(1/%d) %s %d * arctg(1/%d) %s %d * arctg(1/%d) [%s]\n",
@@ -94,8 +94,7 @@ int UnitTestCalculatePi()
 int main(int argc, char * argv[])
 {
 	// input
-	int digits;
-	scanf_s("%d", &digits);
+    int digits = atoi(argv[1]);
 	
 	DWORD start, end;
 	start = GetTickCount();

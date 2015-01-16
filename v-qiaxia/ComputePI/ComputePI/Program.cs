@@ -151,7 +151,12 @@ namespace ComputePI
 
         static void Main(string[] args)
         {
+            System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
+            sw.Start();
             Compute(args[0]);
+            sw.Stop();
+            TimeSpan ts = sw.Elapsed;
+            Console.WriteLine("\t\tTime(sec):" + ts.TotalSeconds);
         }
     }
 }

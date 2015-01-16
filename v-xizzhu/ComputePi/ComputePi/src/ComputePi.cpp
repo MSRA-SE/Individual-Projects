@@ -1,7 +1,8 @@
 #include "..\lib\ComputePi.h"
 
 
-
+clock_t start;
+clock_t endt;
 
 ComputePi::ComputePi(int n)
 {
@@ -72,7 +73,8 @@ void ComputePi::compute(void)
 	BigFloat down = Reciprocal(tmp2, precision);
 
 	BigFloat pi = Q0N * down * BigFloat(C3, mulexactnum) * tmp1;
-	pi.Display(precision);
+    endt = clock();
+	//pi.Display(precision);
 
 }
 
@@ -81,12 +83,11 @@ int main(int argc, char *argv[])
 	//_CrtSetBreakAlloc(385013);
 	//_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 
-	//clock_t start = clock();
 	if (argc != 2)
 		return 0;
-	ComputePi test(atoi(argv[1]));
+    start = clock();
+    ComputePi test(atoi(argv[1]));
 	test.compute();
-	//clock_t end = clock();
-	//cout << endl << (double)(end - start) / CLOCKS_PER_SEC << endl;
+	cout << endl << (double)(endt - start) / CLOCKS_PER_SEC << " s" << endl;
 	return 0;
 }
